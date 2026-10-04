@@ -5,6 +5,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.netology.config.JavaConfig;
 import ru.netology.controller.PostController;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,15 +23,8 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        final var context = new AnnotationConfigApplicationContext("ru.netology");
         controller = context.getBean(PostController.class);
-    }
-
-    @Override
-    public void destroy() {
-        if (context instanceof ConfigurableApplicationContext) {
-            ((ConfigurableApplicationContext) context).close();
-        }
     }
 
     @Override
