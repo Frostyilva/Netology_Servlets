@@ -40,7 +40,7 @@ public class PostRepositoryImpl implements PostRepository {
                 old.setContent(post.getContent());
                 return old;
             } else {
-                throw new NotFoundException("Post not found");
+                throw new NotFoundException();
             }
         }
     }

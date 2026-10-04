@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-// Stub
+
 public interface PostRepository {
     List<Post> all();
 
